@@ -1,0 +1,65 @@
+GOOGLE - авторизация/регистрация
+===================================
+https://console.cloud.google.com/
+1. Select a project → New Project
+2. Выбери проект
+   👉 после создания выбери его вверху
+3. В поиске вбиваем APIs & Services
+→ Это слева будет - OAuth consent screen
+External - выбераем тк не для компании делаем
+
+4. + CREATE CREDENTIALS
+OAuth client ID
+
+- и вот тут то ы их и получим
+
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+
+ПРИМЕЧАНИЯ:
+✔ у social users может НЕ быть пароля
+✔ login через соцсети вообще не использует password
+✔ это стандарт в SaaS
+
+GITHUB:
+===============
+добавили в env переменные и в service конфиги
+GitHub Developer Settings
+!!! НА ИКОНКУ В ПРАВОМ ВЕРХНЕМ УГЛУ
+-> Settings
+-> СЛЕВА В НИЖЕНМ УГЛУ ВНИЗУ developer settings
+-> Слево OAuth app -> new app
+
+Ввести обязательные поля:
+Application name:
+laravel-13-name
+
+Home page url:
+http://localhost:8000
+
+Authorization callback URL:
+
+Перекинет на страничку где мы увидем client
+И сможем сгенерировать secret
+
+!!! Авторизация тот же эндпоинт
+
+Auth::login($user);
+Как это работает
+Создаеться сессия (в бд щас)
+
+2. Генерируется/обновляется cookie
+
+Laravel отправляет браузеру cookie:
+
+laravel_session
+
+👉 в ней лежит ID сессии
+👉 сама сессия хранится на сервере (file / redis / db)
+
+Упрощённо (в одну строку)
+
+👉 Auth::login($user) =
+“запиши user_id в сессию и выдай cookie”
+
+

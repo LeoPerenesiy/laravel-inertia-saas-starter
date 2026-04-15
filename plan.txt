@@ -1,0 +1,31 @@
+
+1) Логин +
+разобрать как работает внутри
+logout - разобрать логику +
+
+2) Логин через socialize +
+
+3) health endpoint c уведолениями +
+
+4) CRUD
+
+5) Забыл пароль
+
+6) Сессии в Redis
+
+7) Флаги и посмотреть на куку если можно
+SESSION_SECURE_COOKIE=true
+SESSION_HTTP_ONLY=true
+SESSION_SAME_SITE=lax
+
+8) AUTH для api через passport
+
+Дополнительно:
+- Сильный пароль Фронт + Бек
+- очередь через редис
+facebook
+apple
+linkedin
+
+GOF:
+----
