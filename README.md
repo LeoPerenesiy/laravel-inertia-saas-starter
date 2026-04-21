@@ -89,3 +89,45 @@ Includes:
 - email
 
 ---
+
+# LinkedIn OAuth Authentication Setup (Laravel)
+
+This guide explains how to set up LinkedIn OAuth login in a Laravel application using Laravel Socialite.
+
+---
+
+## 1. Create LinkedIn App
+
+Go to:  
+https://www.linkedin.com/developers/
+
+### Steps:
+1. Click **Create app**
+2. Fill in required fields:
+    - App name (e.g. `MyApp Auth`)
+    - LinkedIn Page (you must have or create a company page)
+    - Logo (required)
+
+---
+
+## 2. Enable Products
+
+Inside your app dashboard:
+
+Go to **Products** tab and enable:
+
+- **Sign In with LinkedIn using OpenID Connect**
+
+Click **Request Access** if required.
+
+---
+
+## 3. Configure OAuth Settings
+
+Go to:
+
+**Auth → OAuth 2.0 settings**
+
+Add Redirect URL:
+
+### Production

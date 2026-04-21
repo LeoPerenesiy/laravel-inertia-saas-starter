@@ -48,7 +48,7 @@ final class SocialAuthController extends Controller
                     ]);
                 }
 
-                // 🔹 создаём social account
+                // 🔹 Create social account
                 SocialAccount::create([
                     'user_id' => $user->id,
                     'provider' => $provider,

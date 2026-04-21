@@ -199,12 +199,12 @@ export default function Register() {
                         >
                             🔵 Facebook
                         </a>
-                        <button className="border px-4 py-2 rounded hover:bg-gray-100">
-                            ⚫ Apple
-                        </button>
-                        <button className="border px-4 py-2 rounded hover:bg-gray-100">
+                        <a
+                            href="/auth/linkedin-openid"
+                            className="border px-4 py-2 rounded hover:bg-gray-100 flex items-center gap-2"
+                        >
                             ⚫ Linkedin
-                        </button>
+                        </a>
                     </div>
 
                     <Link
