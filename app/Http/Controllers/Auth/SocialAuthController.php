@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Service\Team\TeamService;
 use App\Models\SocialAccount;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -12,6 +13,8 @@ use Throwable;
 
 final class SocialAuthController extends Controller
 {
+    public function __construct(private readonly TeamService $teamService) {}
+
     public function redirect(string $provider)
     {
         return Socialite::driver($provider)->redirect();
@@ -46,6 +49,8 @@ final class SocialAuthController extends Controller
                         'password' => null,
                         'email_verified_at' => $email ? now() : null,
                     ]);
+
+                    $this->teamService->createTeam($user->name, $user->id);
                 }
 
                 // 🔹 Create social account
