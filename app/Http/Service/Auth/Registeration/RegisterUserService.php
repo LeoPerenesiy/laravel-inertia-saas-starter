@@ -22,7 +22,7 @@ readonly class RegisterUserService
                 'password' => Hash::make($data['password']),
             ]);
 
-            $this->teamService->createTeam($data, $user->id);
+            $this->teamService->createTeam($data['name'], $user->id);
 
             return $user;
         });
