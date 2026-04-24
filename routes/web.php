@@ -2,11 +2,11 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\SocialAuthController;
+use App\Models\Team;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
 
 Route::inertia('/', 'welcome')->middleware('guest');
 
@@ -32,7 +32,6 @@ Route::middleware('guest')->group(function () {
     Route::post('/reset-password', [AuthController::class, 'resetPassword']);
 });
 
-
 /*
 |--------------------------------------------------------------------------
 | AUTH
@@ -41,14 +40,16 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
 
     Route::get('/home', function () {
+
+        $user = auth()->user();
+
         return Inertia::render('home', [
-            'user' => auth()->user(),
+            'user' => $user->load('ownedTeam'),
         ]);
     })->name('home');
 
     Route::post('/logout', [AuthController::class, 'logout']);
 });
-
 
 /*
 |--------------------------------------------------------------------------
@@ -58,7 +59,6 @@ Route::middleware('auth')->group(function () {
 Route::get('/auth/{provider}', [SocialAuthController::class, 'redirect']);
 Route::get('/auth/{provider}/callback', [SocialAuthController::class, 'callback']);
 
-
 /*
 |--------------------------------------------------------------------------
 | EMAIL VERIFICATION (STRICT)
@@ -67,7 +67,6 @@ Route::get('/auth/{provider}/callback', [SocialAuthController::class, 'callback'
 Route::get('/verification', [AuthController::class, 'verification'])
     ->middleware('signed')
     ->name('verification.strict');
-
 
 /*
 |--------------------------------------------------------------------------

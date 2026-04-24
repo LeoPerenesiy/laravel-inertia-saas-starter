@@ -35,4 +35,16 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(SocialAccount::class);
     }
+
+    public function teams()
+    {
+        return $this->belongsToMany(Team::class)
+            ->withPivot('role')
+            ->withTimestamps();
+    }
+
+    public function ownedTeam()
+    {
+        return $this->hasOne(Team::class, 'owner_id');
+    }
 }
