@@ -16,7 +16,7 @@ export default function TeamHeader({ team }: any) {
 return;
 }
 
-                    router.put(`/teams/${team.id}`, {
+                    router.patch(`/team/${team.id}`, {
                         name,
                     });
                 }}

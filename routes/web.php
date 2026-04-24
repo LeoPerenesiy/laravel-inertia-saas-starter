@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\SocialAuthController;
-use App\Models\Team;
+use App\Http\Controllers\Team\TeamController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -49,6 +49,9 @@ Route::middleware('auth')->group(function () {
     })->name('home');
 
     Route::post('/logout', [AuthController::class, 'logout']);
+
+    /** TEAM **/
+    Route::patch('/team/{team}', [TeamController::class, 'edit']);
 });
 
 /*

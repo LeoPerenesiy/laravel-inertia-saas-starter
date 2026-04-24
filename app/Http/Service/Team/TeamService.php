@@ -18,9 +18,16 @@ class TeamService
         ]);
     }
 
-    public function inviteTeamMembers(Team $team, array $members): void {
+    public function editTeam(array $data, Team $team): Team
+    {
+        $team->update([
+            'name' => $data['name'],
+        ]);
 
+        return $team;
     }
+
+    public function inviteTeamMembers(Team $team, array $members): void {}
 
     public function removeTeamMember(Team $team, int $user_id): void {}
 }
