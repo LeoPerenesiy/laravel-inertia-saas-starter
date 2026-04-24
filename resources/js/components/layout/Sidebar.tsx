@@ -15,6 +15,15 @@ export default function Sidebar({ team }: { team: any }) {
                 <Link href="/projects" className="block px-3 py-2 rounded hover:bg-gray-800">
                     Projects
                 </Link>
+                <Link href="/projects" className="block px-3 py-2 rounded hover:bg-gray-800">
+                    Info inside project/team
+                </Link>
+                <Link href="/projects" className="block px-3 py-2 rounded hover:bg-gray-800">
+                    Subscription
+                </Link>
+                <Link href="/projects" className="block px-3 py-2 rounded hover:bg-gray-800">
+                    Settings
+                </Link>
             </nav>
         </div>
     );
