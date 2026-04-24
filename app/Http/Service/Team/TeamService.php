@@ -17,4 +17,10 @@ class TeamService
             'role' => 'owner',
         ]);
     }
+
+    public function inviteTeamMembers(Team $team, array $members): void {
+
+    }
+
+    public function removeTeamMember(Team $team, int $user_id): void {}
 }

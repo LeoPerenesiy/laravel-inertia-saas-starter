@@ -42,4 +42,9 @@ class User extends Authenticatable implements MustVerifyEmail
             ->withPivot('role')
             ->withTimestamps();
     }
+
+    public function ownedTeam()
+    {
+        return $this->hasOne(Team::class, 'owner_id');
+    }
 }
