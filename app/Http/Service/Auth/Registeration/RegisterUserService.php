@@ -2,8 +2,8 @@
 
 namespace App\Http\Service\Auth\Registeration;
 
+use App\Http\Contracts\Auth\Mail\EmailSenderInterface;
 use App\Http\Service\Team\TeamService;
-use App\Models\Team;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;

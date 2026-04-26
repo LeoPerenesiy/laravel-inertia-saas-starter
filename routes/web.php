@@ -32,6 +32,9 @@ Route::middleware('guest')->group(function () {
     Route::post('/reset-password', [AuthController::class, 'resetPassword']);
 });
 
+Route::get('/team/invite/accept', [TeamController::class, 'accept'])
+    ->name('team.invite.accept');
+
 /*
 |--------------------------------------------------------------------------
 | AUTH
@@ -52,6 +55,7 @@ Route::middleware('auth')->group(function () {
 
     /** TEAM **/
     Route::patch('/team/{team}', [TeamController::class, 'edit']);
+    Route::post('/team/invite', [TeamController::class, 'invite']);
 });
 
 /*

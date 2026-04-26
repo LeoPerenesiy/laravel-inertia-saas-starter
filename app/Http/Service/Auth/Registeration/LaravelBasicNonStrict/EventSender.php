@@ -2,7 +2,7 @@
 
 namespace App\Http\Service\Auth\Registeration\LaravelBasicNonStrict;
 
-use App\Http\Service\Auth\Registeration\EmailSenderInterface;
+use App\Http\Contracts\Auth\Mail\EmailSenderInterface;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;

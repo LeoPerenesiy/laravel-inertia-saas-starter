@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Service\Auth\Registeration;
+namespace App\Http\Contracts\Auth\Mail;
 
 use App\Models\User;
 

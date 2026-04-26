@@ -1,0 +1,26 @@
+1. team_invites
+??? Нужен ли единій интерфейс для mail или как ???
+id
+team_id
+email
+token
+expires_at
+accepted_at (nullable)
+
+!!!!! отвалился вход через Facebook
+
+2. Create invite
+
+3. Accept invite
+
+4. Members List with pagination
+
+5. Remove member
+
+6. Member interface
+
+7. Subscriptions
+
+8. Admin panel
+
+9. Logs

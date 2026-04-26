@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Team;
 
 use App\Http\Controllers\Controller;
-use App\Http\Request\Team\TeamEditRequest;
+use App\Http\Requests\Team\AcceptTeamInviteRequest;
+use App\Http\Requests\Team\InviteRequest;
+use App\Http\Requests\Team\TeamEditRequest;
 use App\Http\Service\Team\TeamService;
 use App\Models\Team;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {
@@ -17,5 +20,15 @@ class TeamController extends Controller
         $this->teamService->editTeam($request->validated(), $team);
 
         return redirect('/home')->with('success', 'Team updated');
+    }
+
+    public function invite(InviteRequest $request): void
+    {
+        $this->teamService->inviteTeamMember($request->validated());
+    }
+    public function accept(Request $request): void
+    {
+//        dd('HIT ACCEPT', $request['token']);
+//        $this->teamService->accept($request['token']);
     }
 }

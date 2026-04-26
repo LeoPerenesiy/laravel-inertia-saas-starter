@@ -6,7 +6,7 @@ export default function TeamDashboard({ team }: { team: any }) {
     return (
         <div className="space-y-6">
             <TeamHeader team={team} />
-            <InviteMember team={team} />
+            <InviteMember />
             <TeamMembers team={team} />
         </div>
     );

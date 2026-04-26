@@ -1,12 +1,14 @@
 import { router } from '@inertiajs/react';
 
-export default function InviteMember({ team }: any) {
+export default function InviteMember() {
     const submit = () => {
         const email = prompt('Member email');
 
-        if (!email) return;
+        if (!email) {
+            return;
+        }
 
-        router.post(`/teams/${team.id}/invite`, {
+        router.post(`/team/invite`, {
             email,
         });
     };

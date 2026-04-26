@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Request\Auth;
+namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-final class RegisterRequest extends FormRequest
+class ResetPasswordRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -14,8 +14,8 @@ final class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', 'max:255', 'unique:users,email'],
+            'token' => ['required', 'string'],
+            'email' => ['required', 'email', 'max:255', 'exists:users,email'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ];
     }
@@ -23,10 +23,8 @@ final class RegisterRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Name is required',
             'email.required' => 'Email is required',
             'email.email' => 'Invalid email format',
-            'email.unique' => 'Email is already taken',
             'password.required' => 'Password is required',
             'password.min' => 'Password must be at least 6 characters',
             'password.confirmed' => 'Passwords do not match',
