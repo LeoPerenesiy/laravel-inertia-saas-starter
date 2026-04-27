@@ -6,7 +6,6 @@ use App\Http\Controllers\Team\TeamController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 Route::inertia('/', 'welcome')->middleware('guest');
 
@@ -42,15 +41,7 @@ Route::get('/team/invite/accept', [TeamController::class, 'accept'])
 */
 Route::middleware('auth')->group(function () {
 
-    Route::get('/home', function () {
-
-        $user = auth()->user();
-
-        return Inertia::render('home', [
-            'user' => $user->load('ownedTeam'),
-        ]);
-    })->name('home');
-
+    Route::get('/home', [TeamController::class, 'index'])->name('home');
     Route::post('/logout', [AuthController::class, 'logout']);
 
     /** TEAM **/

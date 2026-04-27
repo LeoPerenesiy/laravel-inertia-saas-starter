@@ -1,18 +1,20 @@
 
-1. Members List with pagination
+1. Members List:
+ - pagination
+ - search
+ - delete
+ - remove
 !!!!! отвалился вход через Facebook
 
-3. Remove member
+2. Member interface
 
-4. Member interface
-
-5. Subscriptions
+3. Subscriptions
 ------------------
 Все возможные платежки
 
-6. Admin panel
+4. Admin panel
 
-7. Logs
+5. Logs
 
-Внести крипту - точнее обменять на свою криту leo-coin - внутренняя валюта
+6. Внести крипту - точнее обменять на свою криту leo-coin - внутренняя валюта
 Обменик свой
