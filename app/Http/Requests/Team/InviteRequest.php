@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Request;
+namespace App\Http\Requests\Team;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-final class VerificationRequest extends FormRequest
+class InviteRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -14,14 +14,15 @@ final class VerificationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => ['required', 'integer'],
+            'email' => ['required', 'email'],
         ];
     }
 
     public function messages(): array
     {
         return [
-            'id.required' => 'Id is required',
+            'email.required' => 'Email is required.',
+            'email.email' => 'Email is invalid.',
         ];
     }
 }

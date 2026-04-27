@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Request\LoginRequest;
-use App\Http\Request\RegisterRequest;
-use App\Http\Request\ResetPasswordRequest;
-use App\Http\Request\VerificationRequest;
+use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Requests\Auth\RegisterRequest;
+use App\Http\Requests\Auth\ResetPasswordRequest;
+use App\Http\Requests\Auth\VerificationRequest;
 use App\Http\Service\Auth\Login\LoginService;
 use App\Http\Service\Auth\Registeration\RegisterUserService;
 use App\Http\Service\Auth\Registeration\SaasStrict\VerifyEmailService;

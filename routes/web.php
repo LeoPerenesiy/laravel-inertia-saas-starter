@@ -2,11 +2,10 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\SocialAuthController;
-use App\Models\Team;
+use App\Http\Controllers\Team\TeamController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 Route::inertia('/', 'welcome')->middleware('guest');
 
@@ -32,6 +31,9 @@ Route::middleware('guest')->group(function () {
     Route::post('/reset-password', [AuthController::class, 'resetPassword']);
 });
 
+Route::get('/team/invite/accept', [TeamController::class, 'accept'])
+    ->name('team.invite.accept')->middleware('signed');
+
 /*
 |--------------------------------------------------------------------------
 | AUTH
@@ -39,16 +41,12 @@ Route::middleware('guest')->group(function () {
 */
 Route::middleware('auth')->group(function () {
 
-    Route::get('/home', function () {
-
-        $user = auth()->user();
-
-        return Inertia::render('home', [
-            'user' => $user->load('ownedTeam'),
-        ]);
-    })->name('home');
-
+    Route::get('/home', [TeamController::class, 'index'])->name('home');
     Route::post('/logout', [AuthController::class, 'logout']);
+
+    /** TEAM **/
+    Route::patch('/team/{team}', [TeamController::class, 'edit']);
+    Route::post('/team/invite', [TeamController::class, 'invite']);
 });
 
 /*

@@ -22,9 +22,9 @@ class RegistrationVerificationEmail extends Mailable
      */
     public function __construct(public User $user) {
         $this->verificationUrl = URL::temporarySignedRoute(
-            'verification.strict', // имя роутa
-            now()->addMinutes(60),  // срок жизни
-            ['id' => $user->id]     // параметры
+            'verification.strict',
+            now()->addMinutes(60),
+            ['id' => $user->id]
         );
     }
 

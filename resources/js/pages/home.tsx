@@ -4,16 +4,18 @@ import TeamDashboard from '@/components/team/TeamDashboard';
 
 export default function Home({
                                  user,
+                                 members
                              }: {
     user: any;
     team: any;
+    members: any;
 }) {
     return (
         <>
             <Head title="Home" />
 
             <AppLayout user={user} team={user.team}>
-                <TeamDashboard team={user.owned_team} />
+                <TeamDashboard team={user.owned_team} members={members} />
             </AppLayout>
         </>
     );
