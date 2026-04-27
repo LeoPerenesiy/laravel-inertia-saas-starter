@@ -67,7 +67,7 @@ readonly class TeamService
 
     public function accept(string $tokenHash): void
     {
-        Log::info('Start');
+        $tokenHash = hash('sha256', $tokenHash);
 
         DB::transaction(function () use ($tokenHash) {
 
@@ -75,23 +75,15 @@ readonly class TeamService
                 ->lockForUpdate()
                 ->firstOrFail();
 
-            if (! hash_equals($invite->token, hash('sha256', $tokenHash))) {
-                abort(403);
-            }
-
             if ($invite->expires_at->isPast()) {
                 abort(403);
             }
 
-            $user = User::firstOrCreate([
-                'email' => $invite->email,
-            ]);
+            $user = User::where('email', $invite->email)->first();
 
             $team = $invite->team;
 
-            Log::info('Atached');
-
-            $team->members()->syncWithoutDetaching($user->id);
+            $team->users()->syncWithoutDetaching($user->id);
 
             $invite->delete();
         });

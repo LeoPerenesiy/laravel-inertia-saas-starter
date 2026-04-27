@@ -17,9 +17,16 @@ class TeamInvitationEmail extends Mailable
         public string $email,
         public string $token
     ) {
-        $this->inviteUrl = route('team.invite.accept', [
-            'token' => $token,
-        ]);
+//        $this->inviteUrl = route('team.invite.accept', [
+//            'token' => $token,
+//        ]);
+
+
+        $this->inviteUrl = URL::temporarySignedRoute(
+            'team.invite.accept',
+            now()->addHours(24),
+            ['token' => $token]
+        );
     }
 
     public function build(): TeamInvitationEmail

@@ -1,26 +1,18 @@
-1. team_invites
-??? Нужен ли единій интерфейс для mail или как ???
-id
-team_id
-email
-token
-expires_at
-accepted_at (nullable)
 
+1. Members List with pagination
 !!!!! отвалился вход через Facebook
 
-2. Create invite
+3. Remove member
 
-3. Accept invite
+4. Member interface
 
-4. Members List with pagination
+5. Subscriptions
+------------------
+Все возможные платежки
 
-5. Remove member
+6. Admin panel
 
-6. Member interface
+7. Logs
 
-7. Subscriptions
-
-8. Admin panel
-
-9. Logs
+Внести крипту - точнее обменять на свою криту leo-coin - внутренняя валюта
+Обменик свой

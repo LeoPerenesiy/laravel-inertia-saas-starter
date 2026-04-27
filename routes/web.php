@@ -33,7 +33,7 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::get('/team/invite/accept', [TeamController::class, 'accept'])
-    ->name('team.invite.accept');
+    ->name('team.invite.accept')->middleware('signed');
 
 /*
 |--------------------------------------------------------------------------

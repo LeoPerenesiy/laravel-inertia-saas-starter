@@ -26,7 +26,6 @@ class TeamInvitation extends Model
     | Relations
     |--------------------------------------------------------------------------
     */
-
     public function team()
     {
         return $this->belongsTo(Team::class);
@@ -55,7 +54,6 @@ class TeamInvitation extends Model
     | Helpers
     |--------------------------------------------------------------------------
     */
-
     public function isExpired(): bool
     {
         return $this->expires_at->isPast();

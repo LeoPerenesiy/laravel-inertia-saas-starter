@@ -26,9 +26,10 @@ class TeamController extends Controller
     {
         $this->teamService->inviteTeamMember($request->validated());
     }
-    public function accept(Request $request): void
+    public function accept(Request $request): RedirectResponse
     {
-//        dd('HIT ACCEPT', $request['token']);
-//        $this->teamService->accept($request['token']);
+        $this->teamService->accept($request['token']);
+
+        return redirect('/home')->with('success', 'Team updated');
     }
 }

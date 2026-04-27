@@ -12,8 +12,6 @@
        style="display:inline-block;padding:10px 15px;background:#4F46E5;color:#fff;text-decoration:none;border-radius:6px;">
         Accept Invitation
     </a>
-
-    <h1>{{$inviteUrl}}</h1>
 </p>
 
 <p style="color:#888;font-size:12px;">
